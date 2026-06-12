@@ -749,36 +749,34 @@ Business inquiries only.
 
 <script>
 
-const apiKey = "AIzaSyBiZgkRIFqQKx4frHgWu1Y5YGaggP7rCow";
+const apiKey = "AIzaSyCRPiusnE0YP37PsaT3M_l93-AH9YwTJzI";
 
 
-async function getSubscribers(channelId, elementId){
+function getSubscribers(channelId, boxId){
 
 
-try {
-
-
-const response = await fetch(
+fetch(
 `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`
-);
+)
 
+.then(res => res.json())
 
-const data = await response.json();
+.then(data => {
 
 
 console.log(data);
 
 
 
-if(data.items){
+if(data.items && data.items.length > 0){
 
 
-let count =
+let subs =
 data.items[0].statistics.subscriberCount;
 
 
-document.getElementById(elementId).innerHTML =
-Number(count).toLocaleString() + " Subscribers";
+document.getElementById(boxId).innerHTML =
+Number(subs).toLocaleString() + " Subscribers";
 
 
 }
@@ -786,24 +784,23 @@ Number(count).toLocaleString() + " Subscribers";
 else{
 
 
-document.getElementById(elementId).innerHTML =
-"Channel Error";
+document.getElementById(boxId).innerHTML =
+"Not Found";
 
 
 }
 
 
-}
+})
+
+.catch(error => {
 
 
-catch(error){
+document.getElementById(boxId).innerHTML =
+"Error";
 
 
-document.getElementById(elementId).innerHTML =
-"API Error";
-
-
-}
+});
 
 
 }
@@ -817,12 +814,10 @@ getSubscribers(
 );
 
 
-
 getSubscribers(
 "UCENphGQBz1JzRMKBnxPEkYw",
 "secondSubs"
 );
-
 
 
 getSubscribers(
