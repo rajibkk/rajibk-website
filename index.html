@@ -747,88 +747,38 @@ Business inquiries only.
 
 </footer>
 
-<script>
+async function getSubscribers(channelId, box){
 
 const apiKey = "AIzaSyCRPiusnE0YP37PsaT3M_l93-AH9YwTJzI";
 
 
-function getSubscribers(channelId, boxId){
-
-
-fetch(
+const response = await fetch(
 `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`
-)
-
-.then(res => res.json())
-
-.then(data => {
-
-
-console.log(data);
-
-
-
-if(data.items && data.items.length > 0){
-
-
-let subs =
-data.items[0].statistics.subscriberCount;
-
-
-document.getElementById(boxId).innerHTML =
-Number(subs).toLocaleString() + " Subscribers";
-
-
-}
-
-else{
-
-
-document.getElementById(boxId).innerHTML =
-"Not Found";
-
-
-}
-
-
-})
-
-.catch(error => {
-
-
-document.getElementById(boxId).innerHTML =
-"Error";
-
-
-});
-
-
-}
-
-
-
-
-getSubscribers(
-"UCPXEH-3dsX3jznW1f1ufMTw",
-"mainSubs"
 );
 
 
-getSubscribers(
-"UCENphGQBz1JzRMKBnxPEkYw",
-"secondSubs"
-);
+const data = await response.json();
 
 
-getSubscribers(
-"UC3otDLZRoaRkklX544-Lavw",
-"thirdSubs"
-);
+if(data.items){
+
+let count = data.items[0].statistics.subscriberCount;
 
 
+document.getElementById(box).innerHTML =
+count + " Subscribers";
 
-</script>
+}
 
+}
+
+  getSubscribers("UCPXEH-3dsX3jznW1f1ufMTw","mainSubs");
+
+getSubscribers("UCENphGQBz1JzRMKBnxPEkYw","secondSubs");
+
+getSubscribers("UC3otDLZRoaRkklX544-Lavw","thirdSubs");
+
+  
 </body>
 
 
