@@ -747,18 +747,21 @@ Business inquiries only.
 
 </footer>
 
+
 <script>
 
 async function getSubscribers(){
 
 const channelId = [
-"UC3otDLZRoaRkklX544-Lavw"
-"UCENphGQBz1JzRMKBnxPEkYw"
-"UCPXEH-3dsX3jznW1f1ufMTw”
+“UC3otDLZRoaRkklX544-Lavw”
+“UCENphGQBz1JzRMKBnxPEkYw”
+“UCPXEH-3dsX3jznW1f1ufMTw”
 ];
 
 const apiKey = "AIzaSyBiZgkRIFqQKx4frHgWu1Y5YGaggP7rCow";
 
+
+try {
 
 let url =
 `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
@@ -767,6 +770,9 @@ let url =
 let response = await fetch(url);
 
 let data = await response.json();
+
+
+console.log(data);
 
 
 let subscribers =
@@ -779,12 +785,22 @@ Number(subscribers).toLocaleString();
 
 }
 
+catch(error){
+
+document.getElementById("subs").innerHTML =
+"API Error";
+
+console.log(error);
+
+}
+
+
+}
+
 
 getSubscribers();
 
-
 </script>
-
 
 </body>
 
