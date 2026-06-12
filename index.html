@@ -747,23 +747,42 @@ Business inquiries only.
 
 </footer>
 
-
 <script>
 
-let subs = 0;
+async function getSubscribers(){
+
+const channelId = "UC3otDLZRoaRkklX544-Lavw"
+“UCENphGQBz1JzRMKBnxPEkYw”
+“UCPXEH-3dsX3jznW1f1ufMTw”;
+
+const apiKey = "AIzaSyBiZgkRIFqQKx4frHgWu1Y5YGaggP7rCow";
 
 
-function updateSubs(){
+let url =
+`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
+
+
+let response = await fetch(url);
+
+let data = await response.json();
+
+
+let subscribers =
+data.items[0].statistics.subscriberCount;
+
 
 document.getElementById("subs").innerHTML =
-subs.toLocaleString();
+Number(subscribers).toLocaleString();
+
 
 }
 
 
-updateSubs();
+getSubscribers();
+
 
 </script>
+
 
 </body>
 
