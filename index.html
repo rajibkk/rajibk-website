@@ -747,65 +747,57 @@ Business inquiries only.
 
 </footer>
 
-<script>
+  <script>
 
-document.getElementById("subs").innerHTML = "Testing...";
-
-async function getSubscribers(){
-
-const channelId = [
-"UCPXEH-3dsX3jznW1f1ufMTw"
-"UC3otDLZRoaRkklX544-Lavw”
-“UCENphGQBz1JzRMKBnxPEkYw"
-  ];
+console.log("SCRIPT RUNNING");
 
 const apiKey = "AIzaSyBiZgkRIFqQKx4frHgWu1Y5YGaggP7rCow";
 
 
-try {
+async function getSubs(channelId, elementId){
 
-const response = await fetch(
-`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`
+let url =
+`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
+
+
+let response = await fetch(url);
+
+let data = await response.json();
+
+
+let count =
+data.items[0].statistics.subscriberCount;
+
+
+document.getElementById(elementId).innerHTML =
+Number(count).toLocaleString() + " Subscribers";
+
+}
+
+
+
+// Channel 1
+
+getSubs(
+"UC3otDLZRoaRkklX544-Lavw”,
+"mainSubs"
 );
 
 
-const data = await response.json();
+// Channel 2
+
+getSubs(
+“UCENphGQBz1JzRMKBnxPEkYw",
+"secondSubs"
+);
 
 
-console.log(data);
+// Channel 3
 
-
-if(data.items){
-
-let count = data.items[0].statistics.subscriberCount;
-
-document.getElementById("subs").innerHTML =
-count + " Subscribers";
-
-}
-
-else{
-
-document.getElementById("subs").innerHTML =
-"Channel/API Error";
-
-}
-
-}
-
-catch(error){
-
-document.getElementById("subs").innerHTML =
-"Connection Error";
-
-console.log(error);
-
-}
-
-}
-
-
-getSubscribers();
+getSubs(
+"UCPXEH-3dsX3jznW1f1ufMTw”,
+"thirdSubs"
+);
 
 
 </script>
