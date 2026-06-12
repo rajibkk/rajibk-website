@@ -749,47 +749,60 @@ Business inquiries only.
 
 <script>
 
+document.getElementById("subs").innerHTML = "Testing...";
+
 async function getSubscribers(){
 
 const channelId = "UCPXEH-3dsX3jznW1f1ufMTw";
 
-const apiKey = "YOUR_API_KEY";
+const apiKey = "AIzaSyBiZgkRIFqQKx4frHgWu1Y5YGaggP7rCow";
 
 
-let url =
-"https://www.googleapis.com/youtube/v3/channels?part=statistics&id="
-+ channelId +
-"&key=" + apiKey;
+try {
+
+const response = await fetch(
+`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`
+);
 
 
-let response = await fetch(url);
-
-let data = await response.json();
+const data = await response.json();
 
 
-if(data.error){
+console.log(data);
+
+
+if(data.items){
+
+let count = data.items[0].statistics.subscriberCount;
 
 document.getElementById("subs").innerHTML =
-data.error.message;
+count + " Subscribers";
 
 }
 
 else{
 
-let count =
-data.items[0].statistics.subscriberCount;
-
-
 document.getElementById("subs").innerHTML =
-Number(count).toLocaleString();
+"Channel/API Error";
 
 }
 
+}
+
+catch(error){
+
+document.getElementById("subs").innerHTML =
+"Connection Error";
+
+console.log(error);
+
+}
 
 }
 
 
 getSubscribers();
+
 
 </script>
 
