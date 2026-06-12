@@ -747,21 +747,12 @@ Business inquiries only.
 
 </footer>
 
-
 <script>
-
-async function getSubscribers(){
-
-const channelId = [
-“UC3otDLZRoaRkklX544-Lavw”
-“UCENphGQBz1JzRMKBnxPEkYw”
-“UCPXEH-3dsX3jznW1f1ufMTw”
-];
 
 const apiKey = "AIzaSyBiZgkRIFqQKx4frHgWu1Y5YGaggP7rCow";
 
 
-try {
+async function getSubs(channelId, elementId){
 
 let url =
 `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
@@ -772,35 +763,43 @@ let response = await fetch(url);
 let data = await response.json();
 
 
-console.log(data);
-
-
-let subscribers =
+let count =
 data.items[0].statistics.subscriberCount;
 
 
-document.getElementById("subs").innerHTML =
-Number(subscribers).toLocaleString();
-
-
-}
-
-catch(error){
-
-document.getElementById("subs").innerHTML =
-"API Error";
-
-console.log(error);
+document.getElementById(elementId).innerHTML =
+Number(count).toLocaleString() + " Subscribers";
 
 }
 
 
-}
+
+// Channel 1
+
+getSubs(
+"UC3otDLZRoaRkklX544-Lavw”,
+"mainSubs"
+);
 
 
-getSubscribers();
+// Channel 2
+
+getSubs(
+“UCENphGQBz1JzRMKBnxPEkYw",
+"secondSubs"
+);
+
+
+// Channel 3
+
+getSubs(
+"UCPXEH-3dsX3jznW1f1ufMTw”,
+"thirdSubs"
+);
+
 
 </script>
+
 
 </body>
 
