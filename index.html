@@ -1,177 +1,320 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 
 <head>
 
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 <title>Rajibk | Creator Portfolio</title>
 
 
-<meta name="description" content="Official portfolio of Rajibk - Gaming YouTuber and content creator">
+<meta name="description" content="Rajibk Gaming Creator Portfolio">
 
 
 <style>
 
+
 *{
-  box-sizing:border-box;
-}
-
-body {
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#0f0f0f;
-  color:white;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 
-/* NAV */
+body{
+
+font-family:Arial, Helvetica, sans-serif;
+
+background:#050505;
+
+color:white;
+
+}
+
+
+
+/* NAVBAR */
+
 
 .nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#111;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  z-index:10;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+padding:18px 40px;
+
+background:rgba(0,0,0,0.8);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:1000;
+
+backdrop-filter:blur(10px);
+
 }
+
+
+
+.logo{
+
+font-size:25px;
+
+color:red;
+
+font-weight:bold;
+
+}
+
 
 
 .nav a{
-  color:white;
-  text-decoration:none;
-  margin:0 10px;
+
+color:white;
+
+text-decoration:none;
+
+margin-left:20px;
+
+font-size:16px;
+
 }
+
+
+
 
 
 /* HERO */
 
+
 .hero{
 
- height:100vh;
- display:flex;
- flex-direction:column;
- justify-content:center;
- align-items:center;
- text-align:center;
- padding:20px;
 
- background:
- radial-gradient(circle,#333,#000);
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:30px;
+
+
+background:
+
+linear-gradient(
+rgba(0,0,0,.5),
+rgba(0,0,0,.9)
+),
+
+radial-gradient(circle,#333,#000);
+
+
+}
+
+
+
+
+
+/* PROFILE PHOTO */
+
+
+.profile-box{
+
+width:260px;
+
+height:260px;
+
+border-radius:50%;
+
+padding:6px;
+
+background:red;
+
+box-shadow:
+
+0 0 30px red,
+0 0 60px red;
+
+margin-bottom:25px;
 
 }
 
 
-.profile-img{
 
- width:230px;
- height:230px;
 
- object-fit:cover;
+.profile-box img{
 
- border-radius:50%;
 
- border:5px solid red;
+width:100%;
 
- box-shadow:
- 0 0 30px red;
+height:100%;
 
- margin-bottom:20px;
+
+object-fit:cover;
+
+border-radius:50%;
+
 
 }
+
+
+
 
 
 .hero h1{
 
- font-size:45px;
+
+font-size:55px;
+
+margin-bottom:15px;
+
 
 }
+
 
 
 .hero span{
 
- color:red;
+color:red;
 
 }
+
 
 
 .hero p{
 
- font-size:18px;
+font-size:20px;
+
+color:#ccc;
+
+margin-bottom:25px;
 
 }
 
 
-
-/* BUTTON */
 
 
 .btn{
 
- display:inline-block;
 
- margin:10px;
+display:inline-block;
 
- padding:12px 20px;
+padding:14px 25px;
 
- background:red;
+background:red;
 
- color:white;
+color:white;
 
- text-decoration:none;
+border-radius:30px;
 
- border-radius:8px;
+text-decoration:none;
+
+margin:8px;
+
+transition:.3s;
+
+
+}
+
+
+.btn:hover{
+
+background:white;
+
+color:red;
 
 }
 
 
 
-/* SECTIONS */
+
+
+/* SECTION */
 
 
 section{
 
- padding:80px 20px;
 
- max-width:900px;
+max-width:1000px;
 
- margin:auto;
+margin:auto;
+
+padding:90px 25px;
+
 
 }
+
+
+
+h2{
+
+font-size:35px;
+
+margin-bottom:25px;
+
+color:red;
+
+}
+
+
+
 
 
 .box{
 
- background:#1c1c1c;
 
- padding:20px;
+background:#151515;
 
- border-radius:12px;
+padding:25px;
 
- line-height:1.6;
+border-radius:15px;
+
+line-height:1.8;
+
+box-shadow:0 0 15px #222;
+
 
 }
 
 
-/* CHANNELS */
+
+
+
+
+
+/* CHANNEL CARDS */
 
 
 .grid{
 
- display:grid;
 
- grid-template-columns:
- repeat(auto-fit,minmax(250px,1fr));
+display:grid;
 
- gap:20px;
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+
+gap:25px;
+
 
 }
 
@@ -179,15 +322,63 @@ section{
 
 .card{
 
- background:#1c1c1c;
 
- padding:20px;
+background:#151515;
 
- border-radius:12px;
+padding:30px;
 
- text-align:center;
+border-radius:15px;
+
+text-align:center;
+
+transition:.3s;
+
 
 }
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 25px red;
+
+}
+
+
+
+.card h3{
+
+font-size:25px;
+
+margin-bottom:10px;
+
+}
+
+
+
+
+
+/* SOCIAL */
+
+
+.social{
+
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+
+}
+
+
+
 
 
 /* FOOTER */
@@ -195,13 +386,59 @@ section{
 
 footer{
 
- text-align:center;
 
- background:#111;
+text-align:center;
 
- padding:20px;
+padding:25px;
 
- color:#777;
+background:#111;
+
+color:#777;
+
+
+}
+
+
+
+
+
+@media(max-width:600px){
+
+
+.nav{
+
+padding:15px;
+
+}
+
+
+
+.nav a{
+
+font-size:13px;
+
+margin-left:8px;
+
+}
+
+
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+
+
+.profile-box{
+
+width:200px;
+
+height:200px;
+
+}
+
 
 }
 
@@ -210,14 +447,9 @@ footer{
 </style>
 
 
-
 </head>
 
-
-
-
 <body>
-
 
 
 
@@ -227,14 +459,14 @@ footer{
 <div class="nav">
 
 
-<div>
-<b>Rajibk</b>
+<div class="logo">
+
+Rajibk
+
 </div>
 
 
-
 <div>
-
 
 <a href="#about">About</a>
 
@@ -255,20 +487,22 @@ footer{
 <!-- HERO -->
 
 
-
 <section class="hero">
 
 
 
-<img class="profile-img"
+<div class="profile-box">
 
-src="profile.jpg"
 
-alt="Rajibk Creator">
+<img src="profile.jpg" alt="Rajibk Photo">
+
+
+</div>
+
+
 
 
 <h1>
-
 
 Hi, I'm <span>Rajibk</span>
 
@@ -278,8 +512,7 @@ Hi, I'm <span>Rajibk</span>
 
 <p>
 
-
-Gaming YouTuber | Content Creator | Shorts Maker
+Gaming YouTuber | Content Creator | Video Maker
 
 </p>
 
@@ -288,8 +521,7 @@ Gaming YouTuber | Content Creator | Shorts Maker
 
 <a class="btn" href="#channels">
 
-
-Explore Channels
+My Channels
 
 </a>
 
@@ -298,13 +530,12 @@ Explore Channels
 
 <a class="btn"
 
-href="https://www.youtube.com/channel/UCPXEH-3dsX3jznW1f1ufMTw?sub_confirmation=1"
+href="https://www.youtube.com/channel/UCPXEH-3dsX3jznW1f1ufMTw?sub_confirmation=1">
 
-target="_blank">
-
-Subscribe Main Channel
+Subscribe
 
 </a>
+
 
 
 
@@ -319,9 +550,7 @@ Subscribe Main Channel
 <!-- ABOUT -->
 
 
-
 <section id="about">
-
 
 
 <h2>About Me</h2>
@@ -331,12 +560,15 @@ Subscribe Main Channel
 <div class="box">
 
 
-I am Rajibk, a gaming and content creator on YouTube.
+Hello! I am Rajibk.
 
-I create gameplay videos, shorts and entertainment content.
+I create gaming videos, shorts, entertainment content and creative videos.
+
+My goal is to entertain people and grow as a creator.
+
+
 
 </div>
-
 
 
 </section>
@@ -350,9 +582,7 @@ I create gameplay videos, shorts and entertainment content.
 <!-- CHANNELS -->
 
 
-
 <section id="channels">
-
 
 
 <h2>My Channels</h2>
@@ -364,24 +594,21 @@ I create gameplay videos, shorts and entertainment content.
 
 
 
-<div class="card">
 
+<div class="card">
 
 <h3>Main Channel</h3>
 
-
-<p>Gaming Content</p>
-
+<p>Gaming Videos</p>
 
 
 <a class="btn"
 
-href="https://www.youtube.com/channel/UCPXEH-3dsX3jznW1f1ufMTw?sub_confirmation=1">
+href="https://www.youtube.com/channel/UCPXEH-3dsX3jznW1f1ufMTw">
 
-Subscribe
+Visit
 
 </a>
-
 
 
 </div>
@@ -392,26 +619,21 @@ Subscribe
 
 <div class="card">
 
+<h3>Second Channel</h3>
 
-<h3>Channel 2</h3>
-
-
-<p>Content Videos</p>
-
+<p>Entertainment Content</p>
 
 
 <a class="btn"
 
-href="https://www.youtube.com/channel/UCENphGQBz1JzRMKBnxPEkYw?sub_confirmation=1">
+href="https://www.youtube.com/channel/UCENphGQBz1JzRMKBnxPEkYw">
 
-Subscribe
+Visit
 
 </a>
 
 
-
 </div>
-
 
 
 
@@ -419,31 +641,26 @@ Subscribe
 
 <div class="card">
 
+<h3>Gaming Extra</h3>
 
-<h3>Channel 3</h3>
-
-
-<p>Gaming Extras</p>
-
+<p>Gameplay & Shorts</p>
 
 
 <a class="btn"
 
-href="https://www.youtube.com/channel/UC3otDLZRoaRkklX544-Lavw?sub_confirmation=1">
+href="https://www.youtube.com/channel/UC3otDLZRoaRkklX544-Lavw">
 
-Subscribe
+Visit
 
 </a>
 
 
-
 </div>
 
 
 
 
 </div>
-
 
 
 </section>
@@ -455,27 +672,29 @@ Subscribe
 
 
 
-<!-- CONTACT -->
 
+<!-- CONTACT -->
 
 
 <section id="contact">
 
 
-
 <h2>Contact</h2>
-
 
 
 <div class="box">
 
 
-Email: rajibkofficials@gmail.com
+Email:
 
-<br>
+yourmail@gmail.com
+
+
+<br><br>
 
 
 Business inquiries only.
+
 
 </div>
 
@@ -493,6 +712,7 @@ Business inquiries only.
 
 
 © 2026 Rajibk | Creator Portfolio
+
 
 </footer>
 
