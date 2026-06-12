@@ -16,6 +16,28 @@
 
 <style>
 
+.sub-counter{
+
+margin-top:30px;
+
+background:#111;
+
+padding:20px;
+
+border-radius:15px;
+
+box-shadow:0 0 20px red;
+
+}
+
+
+.sub-counter h1{
+
+font-size:45px;
+
+color:red;
+
+}
 
 *{
 margin:0;
@@ -533,7 +555,19 @@ Subscribe
 
 </a>
 
+<div class="sub-counter">
 
+<h2>
+Subscribers
+</h2>
+
+<h1 id="subs">
+Loading...
+</h1>
+
+<p>Live YouTube Subscriber Count</p>
+
+</div>
 
 
 </section>
@@ -638,9 +672,9 @@ Visit
 
 <div class="card">
 
-<h3>Gaming Extra</h3>
+<h3>Daily vlog</h3>
 
-<p>Gameplay & Shorts</p>
+<p>Self Improvement</p>
 
 
 <a class="btn"
@@ -714,7 +748,22 @@ Business inquiries only.
 </footer>
 
 
+<script>
 
+let subs = 0;
+
+
+function updateSubs(){
+
+document.getElementById("subs").innerHTML =
+subs.toLocaleString();
+
+}
+
+
+updateSubs();
+
+</script>
 
 </body>
 
