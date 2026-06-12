@@ -747,24 +747,19 @@ Business inquiries only.
 
 </footer>
 
-
 <script>
 
 async function getSubscribers(){
 
-const channelId = [
-“UC3otDLZRoaRkklX544-Lavw”
-“UCENphGQBz1JzRMKBnxPEkYw”
-“UCPXEH-3dsX3jznW1f1ufMTw”
-];
+const channelId = "UCPXEH-3dsX3jznW1f1ufMTw";
 
-const apiKey = "AIzaSyBiZgkRIFqQKx4frHgWu1Y5YGaggP7rCow";
+const apiKey = "YOUR_API_KEY";
 
-
-try {
 
 let url =
-`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
+"https://www.googleapis.com/youtube/v3/channels?part=statistics&id="
++ channelId +
+"&key=" + apiKey;
 
 
 let response = await fetch(url);
@@ -772,25 +767,21 @@ let response = await fetch(url);
 let data = await response.json();
 
 
-console.log(data);
+if(data.error){
 
+document.getElementById("subs").innerHTML =
+data.error.message;
 
-let subscribers =
+}
+
+else{
+
+let count =
 data.items[0].statistics.subscriberCount;
 
 
 document.getElementById("subs").innerHTML =
-Number(subscribers).toLocaleString();
-
-
-}
-
-catch(error){
-
-document.getElementById("subs").innerHTML =
-"API Error";
-
-console.log(error);
+Number(count).toLocaleString();
 
 }
 
